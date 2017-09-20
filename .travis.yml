@@ -19,6 +19,8 @@ before_script:
   # - bunzip2 test_data/kraken_test_db/database.idx.bz2
   # - bunzip2 test_data/shogun_test_db/phix.ctr.bz2
 script:
+  # run unit-tests
+  - WITH_COVERAGE=TRUE make all
   # run workflow
   - export PATH=$PATH:$PWD/utree
   - source activate oecophylla
