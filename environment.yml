@@ -1,6 +1,6 @@
 channels:
-  - bioconda
   - biocore
+  - bioconda
 dependencies:
   - python==3.5
   - snakemake==3.13.3
