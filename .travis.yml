@@ -10,6 +10,9 @@ before_install:
   # Update conda itself
   - conda update --yes conda
 install:
+  # install requirements like "coveralls"
+  - pip install -r ci/pip_requirements.txt
+  - pip install . --no-deps
   # install setup environment
   - bash install.sh
 before_script:
