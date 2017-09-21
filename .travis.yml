@@ -10,6 +10,9 @@ before_install:
   # Update conda itself
   - conda update --yes conda
 install:
+  # install requirements like "coveralls"
+  - pip install -r ci/pip_requirements.txt
+  - pip install . --no-deps
   # install setup environment
   - bash install.sh
 before_script:
@@ -19,6 +22,8 @@ before_script:
   # - bunzip2 test_data/kraken_test_db/database.idx.bz2
   # - bunzip2 test_data/shogun_test_db/phix.ctr.bz2
 script:
+  # run unit-tests
+  - WITH_COVERAGE=TRUE make all
   # run workflow
   - export PATH=$PATH:$PWD/utree
   - source activate oecophylla
